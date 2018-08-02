@@ -24,13 +24,18 @@ connection.on('error', console.error.bind(console, 'MongoDB connection error:'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname));
+app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
 
 app.get('/track', function(req, res) {
-	res.sendFile(path.join(__dirname, 'views/track.html'));
+	res.render("track");
 });
 
 app.get('/', function(req, res) {
-	res.sendFile(path.join(__dirname, 'views/index.html'));
+	// res.sendFile(path.join(__dirname, 'views/index.html'));
+	res.render("index", {
+		shortUrl : null
+	});
 });
 
 app.get('/:shortUrl', redirect);

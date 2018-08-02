@@ -8,24 +8,29 @@
  </head>
  
  <body>
-    <header><h1>URL Shortener</h1></header>
+    <header>
+        <h1>URL Shortener</h1>
+        if shortUrl != null
+            h2 Short Link: <a href=#{shortUrl}>https://url-shortenerr.herokuapp.com/#{shortUrl}</a>
+    </header>
  
 
     <div class="page">
         <div class="form">
         <form method="POST" action="/shorten">
+            <label>Link:</label>
             <input type="text" name="longUrl" placeholder="Paste a Link" required/>
-            <input type="text" name="customHash" placeholder="Custom Short Link (6 chars long) (optional)"/>
+            <label>Custom URL(6 chars long) (Optional)</label>
+            <input type="text" name="customHash" placeholder="Custom Short Link"/>
             <label>Expiration Date & Time (default : 1 hr)</label>
-            <input type="datetime-local" name="expiryDate"/>
+            <input id="datefield" type="datetime-local" name="expiryDate"/>
             <button type="submit">Shorten</button>
         </form>
+    </div>
+    .form
+        a(href = "/track")
+            button Track
 
-        </div>
-    </div>
-    <div class="form">
-       <a href="/track"><button>Track</button></a>
-    </div>
  </body>
 </html>
 

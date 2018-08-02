@@ -10,7 +10,6 @@
  <body>
     <header><h1>URL Shortener Tracker</h1></header>
  
-
     <div class="login-page">
         <div class="form">
         <form class="login-form" method="post" action="/track">
@@ -20,9 +19,12 @@
         </div>
     </div>
 
-    <div class="form">
-        <a href="/"><button>Home</button></a>
-     </div>
+    if hitCount != null
+        h2 Redirects = #{hitCount}
+
+    .form
+        a(href = "/")
+            button Home
 
  </body>
 </html>

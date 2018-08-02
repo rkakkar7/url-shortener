@@ -22,7 +22,7 @@ exports.shorten = function (req, res) {
 				dbapi.validateHash(customHash, function(value) {
 					//hash present -- throw error
 					if(value) {
-						res.sendFile(path.join(__dirname, "../", "views/errorHash.html"));
+						res.sendFile(path.join(__dirname, "../../", "views/errorHash.html"));
 						return;
 					}
 					//add custom hash to db
@@ -32,7 +32,7 @@ exports.shorten = function (req, res) {
 						created_at = new Date();
 						//expiry date present or not
 						if(req.body.expiryDate) {
-							expire_at = expiryDate;
+							expire_at = req.body.expiryDate;
 						}
 						//if no expiry date given - expire in 1 hr
 						else {
@@ -44,11 +44,11 @@ exports.shorten = function (req, res) {
 						res.render("index", {
 							shortUrl: shortUrl
 						});
-					}
-			})
+					}	
+				})
 			}
 			else {
-				res.sendFile(path.join(__dirname, "../", "views/errorHash.html"));
+				res.sendFile(path.join(__dirname, "../../", "views/errorHash.html"));
 			}
 		}
 
@@ -70,7 +70,7 @@ exports.shorten = function (req, res) {
 			created_at = new Date();
 			//expiry date present or not
 			if(req.body.expiryDate) {
-				expire_at = expiryDate;
+				expire_at = req.body.expiryDate;
 			}
 			//if no expiry date given - expire in 1 hr
 			else {
@@ -79,11 +79,16 @@ exports.shorten = function (req, res) {
 			}
 
 			dbapi.createShortUrl(shortUrl, longUrl, created_at, expire_at, 0);
-			res.send("shortUrl: "+shortUrl);
+			// res.send("URL: <a>https://url-shortenerr.herokuapp.com/"+shortUrl+"</a>");
+			res.render("index", {
+				shortUrl: shortUrl
+			});
 		}
 		
 	}
 	else {
-		res.send("WRONG URL");
+		res.render("index", {
+			shortUrl: "WRONG URL!"
+		});
 	}
 }
