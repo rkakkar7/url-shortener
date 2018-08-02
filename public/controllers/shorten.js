@@ -87,7 +87,3 @@ exports.shorten = function (req, res) {
 		res.send("WRONG URL");
 	}
 }
-
-exports.shortenCustom = function (customHash) {
-
-}
