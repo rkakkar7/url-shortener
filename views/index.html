@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <title>URL Shortener</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../style/styles.css">
+ </head>
+ 
+ <body>
+    <header><h1>URL Shortener</h1></header>
+ 
+
+    <div class="page">
+        <div class="form">
+        <form method="POST" action="/shorten">
+            <input type="text" name="longUrl" placeholder="Paste a Link" required/>
+            <input type="text" name="customHash" placeholder="Custom Short Link (6 chars long) (optional)"/>
+            <label>Expiration Date & Time (default : 1 hr)</label>
+            <input type="datetime-local" name="expiryDate"/>
+            <button type="submit">Shorten</button>
+        </form>
+
+        </div>
+    </div>
+    <div class="form">
+       <a href="/track"><button>Track</button></a>
+    </div>
+ </body>
+</html>
+
