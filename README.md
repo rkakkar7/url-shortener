@@ -40,4 +40,4 @@ NodeJS and NPM is required. [Link](https://nodejs.org/en/download/)
 - Run ```npm install``` in the root directory
 - Either run MongoDB locally or use MLab (cloud), this project is using Mlab. You can follow [this](https://forum.freecodecamp.org/t/guide-for-using-mongodb-and-deploying-to-heroku/19347) guide for setting it up.
 - If you have deployed using Mlab, replace ```process.env.URLSHORTENERDBLINK``` in ```server.js``` with your database link.
-- Run ```node server.js``` in root directory of the porject and your service will up and running.
+- Run ```node server.js``` in root directory of the project and your service will up and running.
