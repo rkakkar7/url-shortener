@@ -11,7 +11,7 @@ exports.redirect = function(req, res) {
 
 				if(longUrl) {
 					dbapi.increaseHit(shortUrl);
-					res.status(302).redirect("https://www."+longUrl);
+					res.status(302).redirect("https://"+longUrl);
 				}
 			})
 		}

@@ -9,6 +9,14 @@ const length = 6;
 exports.shorten = function (req, res) {
 
 	longUrl = req.body.longUrl;
+	today = new Date();
+	console.log("expiryDate:"+req.body.expiryDate);
+	console.log("today:"+today);
+	if(req.body.expiryDate && req.body.expiryDate < today) {
+		res.render("index", {
+			shortUrl: "Something wrong with date"
+		})
+	}
 	//validate long url
 	if(validate(longUrl))
 	{
